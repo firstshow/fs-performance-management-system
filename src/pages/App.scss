@@ -1,7 +1,7 @@
 /* canvas动态背景box */
 .x-app-back {
   z-index: -1;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   overflow: hidden;
