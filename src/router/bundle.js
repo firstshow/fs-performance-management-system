@@ -34,5 +34,5 @@ export const asyncComponent = (getComponent) => {
  * @returns {*}
  */
 export const load = (component) => {
-    return import(`～/pages/${component}`)
+    return import(`~/pages/${component}`)
 }
