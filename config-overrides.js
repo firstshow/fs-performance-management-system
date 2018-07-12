@@ -17,10 +17,12 @@ module.exports = function override(config, env) {
         '~styles': resolve('src/styles'),
         '~utils': resolve('src/utils'),
     }
+    // 按需引入antd
     config = injectBabelPlugin(['import', {
         libraryName: 'antd',
         style: true
     }], config)
+    //设置antd的主题色
     config = rewireLess.withLoaderOptions({
         javascriptEnabled: true, modifyVars: {
             "@primary-color": "#1DA57A"

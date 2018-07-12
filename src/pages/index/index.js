@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import './index.css'
+import './index.scss'
 import RouteConfig from '~router/routes'
 
 console.log(process.env.NODE_ENV)

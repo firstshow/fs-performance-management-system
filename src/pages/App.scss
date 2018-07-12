@@ -1,0 +1,10 @@
+/* canvas动态背景box */
+.x-app-back {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}

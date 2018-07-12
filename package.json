@@ -21,8 +21,10 @@
   },
   "devDependencies": {
     "babel-plugin-import": "^1.8.0",
+    "node-sass": "^4.9.2",
     "react-app-rewire-less": "^2.1.2",
     "react-app-rewired": "^1.5.2",
-    "redux-devtools": "^3.4.1"
+    "redux-devtools": "^3.4.1",
+    "sass-loader": "^7.0.3"
   }
 }

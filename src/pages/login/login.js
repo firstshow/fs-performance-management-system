@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import './login.css'
+import './login.scss'
 import {Button} from 'antd';
 import store from '../../store/index';
 import loginActions from './../../store/modules/login/actions.js'
@@ -10,6 +10,12 @@ class Login extends Component {
         this.state = {
             username: store.getState().Login.username,
         }
+    }
+
+    componentDidMount() {
+        console.log('生成成功')
+        // initFun()
+        // canvas.render()
     }
 
     /**
@@ -27,9 +33,6 @@ class Login extends Component {
     render() {
         return (
             <div className="App">
-                <div className="x-app-back">
-                    <canvas id="Mycanvas" width="1920" height="946"></canvas>
-                </div>
                 <Button type="primary" onClick={this.handleLogin.bind(this)}>登陆{this.state.username}</Button>
                 <p>我是登陆页面</p>
             </div>

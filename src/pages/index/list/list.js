@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './list.css'
+import './list.scss'
 
 class List extends Component {
   render() {
