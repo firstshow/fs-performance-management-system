@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import './login.scss'
 import {Button} from 'antd';
 import store from '../../store/index';
-import loginActions from './../../store/modules/login/actions.js'
+import { login } from './../../store/modules/login/actions.js'
 
 class Login extends Component {
     constructor(props) {
@@ -66,10 +66,12 @@ class Login extends Component {
      * 登陆
      */
     handleLogin() {
-        // store.dispatch(loginActions.login({
-        //     username: 111
-        // }))
-       alert('登陆成功')
+        store.dispatch(login({
+            username: this.state.username,
+            password: this.state.password
+        })).then((res) => {
+            console.log(res)
+        })
     }
 
     render() {

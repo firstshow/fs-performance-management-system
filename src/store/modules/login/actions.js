@@ -1,12 +1,20 @@
 import * as types from './types'
+import http from '~utils/http'
 
-export default {
-    login: res => (dispatch, getState) => {
-        const { username } = res
-        console.log(username)
+/**
+ * 登陆api
+ * @param res 入参
+ */
+export const login = res => (dispatch, getState) => {
+    const {username, password} = res
+    return http.post('/login', {
+        username,
+        password
+    }).then((res) => {
         dispatch({
             type: types.LOGIN_SUCCESS,
             username
         })
-    },
+        return res
+    })
 }
