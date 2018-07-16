@@ -58,7 +58,12 @@ class XNav extends Component {
     renderMenuEl (item) {
         if (item.to) {
             return (
-                <NavLink className="x-nav-menu" activeClassName="selected" to={item.to}>
+                <NavLink className="x-nav-menu" activeClassName="selected" to={item.to} isActive={(match, location) => {
+                    if (item.to.indexOf(location.pathname) > -1) {
+                        return true
+                    }
+                    return false
+                }}>
                     <i className={`icon iconfont ${item.icon}`}></i>
                     <span className="x-menu-name">{item.name}</span>
                 </NavLink>
@@ -87,7 +92,14 @@ class XNav extends Component {
                         list.map((item, i) => {
                             return (
                                 <li key={i}>
-                                    <NavLink className="x-nav-menu" activeClassName="selected" to={item.to}>
+                                    <NavLink className="x-nav-menu" activeClassName="selected" to={item.to} isActive={(match, location) => {
+                                        console.log(location.pathname)
+                                        console.log(item.to)
+                                        if (item.to.indexOf(location.pathname) > -1) {
+                                            return true
+                                        }
+                                        return false
+                                    }}>
                                         <span className="x-menu-name">{item.name}</span>
                                     </NavLink>
                                 </li>

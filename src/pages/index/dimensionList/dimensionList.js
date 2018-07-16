@@ -5,7 +5,7 @@ class DimensionList extends Component {
   render() {
     return (
       <div className="x-home-warper">
-        <p>我是首页</p>
+        <p>维度列表</p>
       </div>
     )
   }

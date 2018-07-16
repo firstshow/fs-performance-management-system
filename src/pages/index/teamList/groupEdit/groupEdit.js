@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import './groupList.scss'
+import './groupEdit.scss'
 
-class GroupList extends Component {
+class GroupEdit extends Component {
   render() {
     return (
       <div className="x-home-warper">
-        <p>小组列表</p>
+        <p>我是首页</p>
       </div>
     )
   }
 }
 
-export default GroupList
+export default GroupEdit
