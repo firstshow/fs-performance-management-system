@@ -1,0 +1,60 @@
+@import "~styles/theme.scss";
+.x-header-container {
+  width: 100%;
+  min-width: 1200px;
+  height: 50px;
+  background-color: $theme;
+  color: $default-white-color;
+  box-shadow: 0 3px 8px rgba(77,151,245,.5);
+  -webkit-box-shadow: 0 3px 8px rgba(77,151,245,.5);
+  -moz-box-shadow: 0 3px 8px rgba(77,151,245,.5);
+  .x-header-content{
+    position: relative;
+    width: 1200px;
+    h1 {
+      font-size: 25px;
+    }
+    .x-user-info-box {
+      .x-user-logo {
+        width: 35px;
+        height: 35px;
+        margin-left: 10px;
+        border-radius: 50%;
+      }
+      &:hover +.x-down-list-warp {
+        display: block;
+      }
+    }
+  }
+}
+
+/* 点击头像显示的下拉列表样式 */
+.x-down-list-warp {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  display: none;
+  width: 120px;
+  padding-top: 11px;
+  border-bottom-right-radius: $default-border-radius;
+  border-bottom-left-radius: $default-border-radius;
+  box-shadow: 0 3px 8px rgba(0,0,0,.1);
+  -webkit-box-shadow: 0 3px 8px rgba(0,0,0,.1);
+  -moz-box-shadow: 0 3px 8px rgba(0,0,0,.1);
+  background-color: transparent;
+  color: $default-word-color;
+  li {
+    padding: $default-top-bottom-padding $default-left-right-padding;
+    background-color: $default-white-color;
+    cursor: pointer;
+    .iconfont {
+      margin-right: 6px;
+    }
+    &:hover {
+      background-color: #f4f4f4;
+    }
+  }
+  &:hover {
+    display: block;
+  }
+}

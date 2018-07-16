@@ -11,6 +11,8 @@ module.exports = function override(config, env) {
     config.resolve.alias = {
         '~': resolve('src'),
         '~assets': resolve('src/assets'),
+        '~components': resolve('src/components'),
+        '~config': resolve('src/config'),
         '~pages': resolve('src/pages'),
         '~router': resolve('src/router'),
         '~store': resolve('src/store'),
@@ -25,7 +27,7 @@ module.exports = function override(config, env) {
     //设置antd的主题色
     config = rewireLess.withLoaderOptions({
         javascriptEnabled: true, modifyVars: {
-            "@primary-color": "#1890ff"
+            "@primary-color": "#4d97f5"
         }
     })(config, env)
 

@@ -12,9 +12,9 @@ function initCanvas() {
     canvas.width = WIDTH
     canvas.height = HEIGHT
     context = canvas.getContext('2d')
-    context.strokeStyle = 'rgba(0,0,0,0.2)'
+    context.strokeStyle = 'rgba(100,100,100,.2)'
     context.strokeWidth = 1
-    context.fillStyle = 'rgba(0,0,0,0.1)'
+    context.fillStyle = 'rgba(100,100,100,.1)'
     circleArr = []
 }
 

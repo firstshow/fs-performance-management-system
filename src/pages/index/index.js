@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import './index.scss'
 import RouteConfig from '~router/routes'
+import XHeader from '~components/x-header/index'
 
 console.log(process.env.NODE_ENV)
 
@@ -17,7 +18,7 @@ class Index extends Component {
   render() {
     return (
       <div className="App">
-        <p>我是首页</p>
+        <XHeader></XHeader>
           <div>
               <Switch>
                   {RouteConfig.map((route, index) => (
