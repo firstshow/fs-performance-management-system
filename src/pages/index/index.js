@@ -21,13 +21,15 @@ class Index extends Component {
             <div className="App">
                 <XHeader></XHeader>
                 <section className="x-body-container" data-flex="main:center">
-                    <div className="x-body-content">
+                    <div className="x-body-content" data-flex="main:left">
                         <XNav></XNav>
-                        <Switch>
-                            {RouteConfig.map((route, index) => (
-                                <RouteWithSubRoutes key={index} {...route} />
-                            ))}
-                        </Switch>
+                        <div className="x-main-content">
+                            <Switch>
+                                {RouteConfig.map((route, index) => (
+                                    <RouteWithSubRoutes key={index} {...route} />
+                                ))}
+                            </Switch>
+                        </div>
                     </div>
                 </section>
             </div>

@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import './home.scss'
+import './teamList.scss'
 
-class Home extends Component {
+class TeamList extends Component {
   render() {
     return (
       <div className="x-home-warper">
-        <p>我是首页</p>
+        <p>团队列表</p>
       </div>
     )
   }
 }
 
-export default Home
+export default TeamList

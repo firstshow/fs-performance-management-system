@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import './home.scss'
+import './groupEdit.scss'
 
-class Home extends Component {
+class GroupEdit extends Component {
   render() {
     return (
       <div className="x-home-warper">
@@ -11,4 +11,4 @@ class Home extends Component {
   }
 }
 
-export default Home
+export default GroupEdit

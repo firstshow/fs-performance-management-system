@@ -13,12 +13,12 @@ class XNav extends Component {
                     icon: 'icon-star',
                     childList: [
                         {
-                            to: '/home',
+                            to: '/performanceList',
                             name: '绩效列表',
                             icon: ''
                         },
                         {
-                            to: '/LIST',
+                            to: '/dimensionList',
                             name: '维度列表',
                             icon: ''
                         }
@@ -30,19 +30,19 @@ class XNav extends Component {
                     icon: 'icon-team',
                     childList: [
                         {
-                            to: '/team',
+                            to: '/teamList',
                             name: '团队列表',
                             icon: ''
                         },
                         {
-                            to: '/group',
+                            to: '/groupList',
                             name: '小组列表',
                             icon: ''
                         }
                     ]
                 },
                 {
-                    to: '/user',
+                    to: '/userList',
                     name: '用户管理',
                     icon: 'icon-users'
                 }
@@ -65,10 +65,10 @@ class XNav extends Component {
             )
         } else {
             return (
-                <li className="x-nav-menu">
+                <div className="x-nav-menu">
                     <i className={`icon iconfont ${item.icon}`}></i>
                     <span className="x-menu-name">{item.name}</span>
-                </li>
+                </div>
             )
         }
     }

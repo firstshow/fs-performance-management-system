@@ -1,7 +1,6 @@
 @import "~styles/theme.scss";
 .x-nav-container {
   width: 200px;
-  padding: $default-top-bottom-padding $default-left-right-padding $default-top-bottom-padding 0;
   .x-menu-box {
     .iconfont +.x-menu-name {
       margin-left: 16px;
@@ -9,6 +8,7 @@
     .x-nav-menu {
       display: inline-block;
       padding: 10px 0;
+      color: $default-word-color
     }
     .x-submenu-box {
       .x-menu-name {

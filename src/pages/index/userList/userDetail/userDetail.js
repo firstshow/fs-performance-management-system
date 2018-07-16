@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import './list.scss'
+import './userDetail.scss'
 
-class List extends Component {
+class UserDetail extends Component {
   render() {
     return (
       <div className="App">
@@ -11,4 +11,4 @@ class List extends Component {
   }
 }
 
-export default List
+export default UserDetail
