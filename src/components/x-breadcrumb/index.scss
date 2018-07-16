@@ -1,0 +1,18 @@
+@import "~styles/theme.scss";
+.x-breadcrumb-warp {
+  margin-bottom: 15px;
+  .icon-back {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .x-breadcrumb-nav {
+    margin-left: 10px;
+    >li {
+      display: inline-block;
+      color: #a8c7f3;
+      &:last-child {
+        color: $theme
+      }
+    }
+  }
+}

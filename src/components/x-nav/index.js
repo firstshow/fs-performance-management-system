@@ -93,8 +93,6 @@ class XNav extends Component {
                             return (
                                 <li key={i}>
                                     <NavLink className="x-nav-menu" activeClassName="selected" to={item.to} isActive={(match, location) => {
-                                        console.log(location.pathname)
-                                        console.log(item.to)
                                         if (item.to.indexOf(location.pathname) > -1) {
                                             return true
                                         }
@@ -126,7 +124,6 @@ class XNav extends Component {
                             )
                         })
                     }
-
                 </ul>
             </nav>
         )
