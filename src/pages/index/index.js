@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Route, Switch} from 'react-router-dom'
+import {Route, Switch, Link} from 'react-router-dom'
 import './index.scss'
 import RouteConfig from '~router/routes'
 import XHeader from '~components/x-header/index'
@@ -18,7 +18,7 @@ const RouteWithSubRoutes = route => (
 class Index extends Component {
     render() {
         return (
-            <div className="App">
+            <div>
                 <XHeader></XHeader>
                 <section className="x-body-container" data-flex="main:center">
                     <div className="x-body-content" data-flex="main:left">
@@ -29,6 +29,7 @@ class Index extends Component {
                                     <RouteWithSubRoutes key={index} {...route} />
                                 ))}
                             </Switch>
+                            <Link className="x-add-ball" to="/performanceList/performanceDetailList/performanceEdit"/>
                         </div>
                     </div>
                 </section>

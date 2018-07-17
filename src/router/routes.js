@@ -53,7 +53,7 @@ export default [
         name: '绩效列表'
     },
     {
-        path: '/performanceList/performanceDetailList',
+        path: '/performanceDetailList',
         component: PerformanceDetailList,
         name: '绩效列表'
     },

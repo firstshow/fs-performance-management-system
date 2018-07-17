@@ -7,69 +7,13 @@
 html, body {
   width: 100%;
   height: 100%;
+  line-height: 14px !important;
   color: $default-word-color;
-  font-size: 13px;
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
+  font-size: 14px;
+  font-family: "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
-}
-
-::-webkit-input-placeholder { /* WebKit browsers */
-  color: #ccc;
-}
-
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  color: #ccc;
-}
-
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-  color: #ccc;
-}
-
-:-ms-input-placeholder { /* Internet Explorer 10+ */
-  color: #ccc;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
-  -webkit-tap-highlight-color: transparent;
-}
-
-ol, ul, dl {
-  list-style: none;
-}
-
-strong, em, i, h1, h2, h3 {
-  margin: 0;
-  padding: 0;
-  color: inherit;
-  font-style: normal;
-  font-size: 1em;
-  font-weight: normal;
-}
-
-a {
-  color: inherit;
-  list-style: none;
-  text-decoration: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-img {
-  border: 0;
-  vertical-align: middle;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
 }
 
 * {
@@ -80,14 +24,78 @@ table {
   box-sizing: border-box;
 }
 
-input, button, select, textarea {
-  font-size: inherit;
-  outline: none
-}
+/* 讲默认样式优先级调高 */
+.x-app-container {
+  ::-webkit-input-placeholder { /* WebKit browsers */
+    color: #ccc;
+  }
 
-textarea {
-  resize: none;
-  border: none
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #ccc;
+  }
+
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #ccc;
+  }
+
+  :-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #ccc;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ol, ul, dl {
+    margin: 0;
+    list-style: none;
+  }
+
+  strong, em, i, h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font-style: normal;
+    font-size: 1em;
+    font-weight: normal;
+  }
+
+  a {
+    color: inherit;
+    list-style: none;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    &:focus {
+      text-decoration: none;
+    }
+  }
+
+  img {
+    border: 0;
+    vertical-align: middle;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  input, button, select, textarea {
+    font-size: inherit;
+    outline: none
+  }
+
+  textarea {
+    resize: none;
+    border: none
+  }
 }
 
 // 覆盖进度条样式

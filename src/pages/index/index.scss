@@ -1,3 +1,4 @@
+@import "~styles/theme.scss";
 .x-body-container {
   width: 100%;
   min-width: 1200px;
@@ -7,8 +8,41 @@
     margin-top: 50px;
     background-color: rgba(255,255,255,.7);
     .x-main-content {
+      position: relative;
       width: 1000px;
       padding-top: 10px
     }
+  }
+}
+
+/* 新增绩效入口的球 */
+.x-add-ball {
+  position: absolute;
+  right: 50px;
+  bottom: 100px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: $theme;
+  box-shadow: 0 0 20px rgba(77,151,245,.9);
+  &:before,
+  &:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
+  &:before {
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+  }
+  &:after {
+    width: 2px;
+    height: 20px;
+    background-color: #fff;
   }
 }

@@ -21,7 +21,7 @@ class App extends Component {
     render() {
         return (
             <BrowserRouter>
-               <div>
+               <div className="x-app-container">
                    <div className="x-app-back">
                        <canvas id="Mycanvas" width="1920" height="946"></canvas>
                    </div>
