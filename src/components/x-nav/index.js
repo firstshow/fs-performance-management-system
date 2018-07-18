@@ -10,16 +10,19 @@ class XNav extends Component {
                 {
                     to: '',
                     name: '绩效管理',
+                    key: '',
                     icon: 'icon-star',
                     childList: [
                         {
                             to: '/performanceList',
                             name: '绩效列表',
+                            key: 'performance',
                             icon: ''
                         },
                         {
                             to: '/dimensionList',
                             name: '维度列表',
+                            key: 'dimension',
                             icon: ''
                         }
                     ]
@@ -32,11 +35,13 @@ class XNav extends Component {
                         {
                             to: '/teamList',
                             name: '团队列表',
+                            key: 'team',
                             icon: ''
                         },
                         {
                             to: '/groupList',
                             name: '小组列表',
+                            key: 'group',
                             icon: ''
                         }
                     ]
@@ -44,6 +49,7 @@ class XNav extends Component {
                 {
                     to: '/userList',
                     name: '用户管理',
+                    key: 'user',
                     icon: 'icon-users'
                 }
             ]
@@ -59,7 +65,7 @@ class XNav extends Component {
         if (item.to) {
             return (
                 <NavLink className="x-nav-menu" activeClassName="selected" to={item.to} isActive={(match, location) => {
-                    if (location.pathname.indexOf(item.to) > -1) {
+                    if (location.pathname.indexOf(item.key) > -1) {
                         return true
                     }
                     return false
@@ -96,7 +102,7 @@ class XNav extends Component {
                                         console.log(item.to)
                                         console.log(location.pathname)
                                         console.log(item.to.indexOf(location.pathname) > -1)
-                                        if (location.pathname.indexOf(item.to) > -1) {
+                                        if (location.pathname.indexOf(item.key) > -1) {
                                             return true
                                         }
                                         return false

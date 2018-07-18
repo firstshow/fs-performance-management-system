@@ -7,7 +7,7 @@ import http from '~utils/http'
  */
 export const login = res => (dispatch, getState) => {
     const {username, password} = res
-    return http.post('/login', {
+    return http.post('/user/login', {
         username,
         password
     }).then((res) => {

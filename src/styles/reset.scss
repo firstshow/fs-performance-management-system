@@ -98,6 +98,10 @@ html, body {
   }
 }
 
+.ant-calendar-picker:hover .ant-calendar-picker-clear {
+  line-height: 0 !important;
+}
+
 // 覆盖进度条样式
 #nprogress .bar {
   z-index: 1031;

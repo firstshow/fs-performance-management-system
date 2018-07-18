@@ -17,3 +17,14 @@
 .x-del-btn {
   color: #fd2a2a !important;
 }
+
+.x-edit-section {
+  margin-bottom: 30px;
+  .x-title {
+    display: inline-block;
+    width: 80px;
+  }
+  .ant-btn:first-child {
+    margin-right: 30px;
+  }
+}

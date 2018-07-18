@@ -9,7 +9,6 @@ console.log(process.env.NODE_ENV)
 
 const RouteWithSubRoutes = route => (
     <Route
-        exact
         path={route.path}
         render={props => <route.component {...props} routes={route.routes}/>}
     />
@@ -29,7 +28,7 @@ class Index extends Component {
                                     <RouteWithSubRoutes key={index} {...route} />
                                 ))}
                             </Switch>
-                            <Link className="x-add-ball" to="/performanceList/performanceDetailList/performanceEdit"/>
+                            <Link className="x-add-ball" to="/performanceEdit"/>
                         </div>
                     </div>
                 </section>

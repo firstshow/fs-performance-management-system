@@ -58,7 +58,7 @@ export default [
         name: '绩效列表'
     },
     {
-        path: '/performanceList/performanceDetailList/performanceEdit',
+        path: '/performanceEdit',
         component: PerformanceEdit,
         name: '绩效详情信息编辑页'
     },
@@ -68,7 +68,7 @@ export default [
         name: '维度列表'
     },
     {
-        path: '/dimensionList/dimensionEdit',
+        path: '/dimensionEdit',
         component: DimensionEdit,
         name: '维度信息编辑'
     },
@@ -79,7 +79,7 @@ export default [
         name: '团队列表'
     },
     {
-        path: '/teamList/teamEdit',
+        path: '/teamEdit',
         component: TeamEdit,
         name: '团队信息编辑'
     },
@@ -89,7 +89,7 @@ export default [
         name: '小组列表'
     },
     {
-        path: '/groupList/groupEdit',
+        path: '/groupEdit',
         component: GroupEdit,
         name: '小组信息编辑'
     },
@@ -100,12 +100,12 @@ export default [
         name: '成员列表'
     },
     {
-        path: '/userList/userEdit',
+        path: '/userEdit',
         component: UserEdit,
         name: '成员信息编辑'
     },
     {
-        path: '/userList/userDetail',
+        path: '/userDetail',
         component: UserDetail,
         name: '成员信息详情'
     },

@@ -42,6 +42,7 @@ function checkStatus (response) {
  * @returns {*}
  */
 function checkCode(res) {
+    console.log(res)
     // 请求成功，但是业务逻辑出错情况下，给出对应提示
     if (res.resultCode !== 200) {
         codeErrorHandle(res)
@@ -55,7 +56,7 @@ function checkCode(res) {
  */
 function statusErrorHandle (res) {
     // 如果code异常(这里已经包括网络错误，服务器错误，后端抛出的错误)，可以弹出一个错误提示，告诉用户
-    message.error('错误status:' + res.status + ';错误信息:网络异常', 3000)
+    message.error('错误status:' + res.status + ';错误信息:网络异常', 3)
 }
 
 /**
@@ -67,7 +68,7 @@ function codeErrorHandle(res) {
     if (res.errorCode === 406) { // 登录失效 跳到登录页
 
     }
-    message.error(res.errorMessage, 3000)
+    message.error(res.resultMessage, 3)
 }
 
 // 存请求时的数据，用来做对比拦截重复请求

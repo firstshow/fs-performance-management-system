@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Select, Input, Table, Divider } from 'antd';
+import { Link } from 'react-router-dom'
 import XBreadcrumb from '~components/x-breadcrumb/index'
 import './userList.scss'
 
@@ -55,7 +56,7 @@ const columns = [{
     width: '120px',
     render: (text, record) => (
         <span>
-          <a className="x-modify-btn" href="javascript:void(0);">修改</a>
+          <Link className="x-modify-btn" to="/userEdit">修改</Link>
           <Divider type="vertical" />
           <a className="x-del-btn" href="javascript:void(0);">
             删除
@@ -90,16 +91,6 @@ class UserList extends Component {
             }]
         }
     }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log('进入了')
-    }
-
-    componentWillMount(nextProps, nextState) {
-        console.log('进入了')
-        return false
-    }
-
     handleChange (value) {
         console.log(`selected ${value}`)
     }

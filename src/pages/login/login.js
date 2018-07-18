@@ -71,7 +71,9 @@ class Login extends Component {
             password: this.state.password
         })).then((res) => {
             console.log(res)
-            this.props.history.push('/home')
+            if (res.resultCode === 200) {
+                this.props.history.push('/home')
+            }
         })
     }
 

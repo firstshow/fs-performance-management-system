@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import { Select, Input, Table, Divider } from 'antd';
+import {Link} from 'react-router-dom'
+import {Select, Input, Table, Divider} from 'antd';
 import XBreadcrumb from '~components/x-breadcrumb/index'
 import './performanceDetailList.scss'
 
@@ -27,8 +28,8 @@ const columns = [{
     width: '120px',
     render: (text, record) => (
         <span>
-          <a className="x-modify-btn" href="javascript:void(0);">修改</a>
-          <Divider type="vertical" />
+          <Link className="x-modify-btn" to="/performanceEdit">修改</Link>
+          <Divider type="vertical"/>
           <a className="x-del-btn" href="javascript:void(0);">
             删除
           </a>
@@ -62,52 +63,52 @@ class PerformanceDetailList extends Component {
         console.log('进入了')
     }
 
-    handleChange (value) {
+    handleChange(value) {
         console.log(`selected ${value}`)
     }
 
     render() {
         return (
             <div className="x-warp">
-              <XBreadcrumb data={this.state.breadcrumbData}></XBreadcrumb>
-              <div className="x-search-warp" data-flex="main:justify cross:center">
-                <div data-flex="main:left">
-                  <div className="x-search-section">
-                    <span>年份：</span>
-                    <Select defaultValue="lucy" style={{ width: 120 }} onChange={this.handleChange}>
-                      <Option value="jack">2018</Option>
-                      <Option value="lucy">2019</Option>
-                    </Select>
-                  </div>
-                  <div className="x-search-section">
-                    <span>季度：</span>
-                    <Select defaultValue="Q1" style={{ width: 120 }} onChange={this.handleChange}>
-                      <Option value="Q1">Q1季度</Option>
-                      <Option value="Q2">Q2季度</Option>
-                      <Option value="Q3">Q3季度</Option>
-                      <Option value="Q4">Q4季度</Option>
-                    </Select>
-                  </div>
-                  <div className="x-search-section">
-                    <span>小组：</span>
-                    <Select defaultValue="lucy" style={{ width: 120 }} onChange={this.handleChange}>
-                      <Option value="jack">Jack</Option>
-                      <Option value="lucy">Lucy</Option>
+                <XBreadcrumb data={this.state.breadcrumbData}></XBreadcrumb>
+                <div className="x-search-warp" data-flex="main:justify cross:center">
+                    <div data-flex="main:left">
+                        <div className="x-search-section">
+                            <span>年份：</span>
+                            <Select defaultValue="lucy" style={{width: 120}} onChange={this.handleChange}>
+                                <Option value="jack">2018</Option>
+                                <Option value="lucy">2019</Option>
+                            </Select>
+                        </div>
+                        <div className="x-search-section">
+                            <span>季度：</span>
+                            <Select defaultValue="Q1" style={{width: 120}} onChange={this.handleChange}>
+                                <Option value="Q1">Q1季度</Option>
+                                <Option value="Q2">Q2季度</Option>
+                                <Option value="Q3">Q3季度</Option>
+                                <Option value="Q4">Q4季度</Option>
+                            </Select>
+                        </div>
+                        <div className="x-search-section">
+                            <span>小组：</span>
+                            <Select defaultValue="lucy" style={{width: 120}} onChange={this.handleChange}>
+                                <Option value="jack">Jack</Option>
+                                <Option value="lucy">Lucy</Option>
 
-                    </Select>
-                  </div>
+                            </Select>
+                        </div>
+                    </div>
+                    <div className="x-search-section">
+                        <Search
+                            placeholder="请输入姓名／花名"
+                            onSearch={value => console.log(value)}
+                            style={{width: 200}}
+                        />
+                    </div>
                 </div>
-                <div className="x-search-section">
-                  <Search
-                      placeholder="请输入姓名／花名"
-                      onSearch={value => console.log(value)}
-                      style={{ width: 200 }}
-                  />
+                <div className="x-table-warp">
+                    <Table columns={columns} dataSource={this.state.tableList} rowKey={record => record.detailsId}/>
                 </div>
-              </div>
-              <div className="x-table-warp">
-                <Table columns={columns} dataSource={this.state.tableList} rowKey={record => record.detailsId} />
-              </div>
             </div>
         )
     }
