@@ -17,9 +17,9 @@
 
 /* 新增绩效入口的球 */
 .x-add-ball {
-  position: absolute;
+  position: fixed;
   right: 50px;
-  bottom: 100px;
+  bottom: 50px;
   width: 60px;
   height: 60px;
   border-radius: 50%;

@@ -3,6 +3,8 @@ import { Select, Input, Table } from 'antd';
 import { Link } from 'react-router-dom'
 import XBreadcrumb from '~components/x-breadcrumb/index'
 import './performanceList.scss'
+import store from '~store/index';
+import { getTotalPerformanceList } from '~store/modules/performance/actions.js'
 
 const Option = Select.Option
 
@@ -50,16 +52,29 @@ class PerformanceList extends Component {
                     name: '绩效列表'
                 }
             ],
-            tableList: [{
-                "totalSocreId": "002",
-                "headImg": "https://accounts.processon.com/uphoto/4/168/5a3a3fe0e4b0bf89b84ea93f.png",
-                "realName": "善栋",
-                "flowerName": "鲁智深",
-                "gender": 1,
-                "groupName": "APP小组",
-                "totalSocre": 10
-            }]
+            tableList: []
         }
+    }
+
+    componentDidMount () {
+        this.getTableList()
+    }
+
+    /**
+     * 获取列表数据
+     */
+    getTableList () {
+        store.dispatch(getTotalPerformanceList({
+            page: 1,
+            pageSize: 10
+        })).then((res) => {
+            console.log(res)
+            if (res.resultCode === 200) {
+                this.setState({
+                    tableList: res.data.list
+                })
+            }
+        })
     }
 
     handleChange (value) {

@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import './login.scss'
 import {Button} from 'antd';
-import store from '../../store/index';
-import { login } from './../../store/modules/login/actions.js'
+import store from '~store/index';
+import { login } from '~store/modules/user/actions.js'
 
 class Login extends Component {
     constructor(props) {
