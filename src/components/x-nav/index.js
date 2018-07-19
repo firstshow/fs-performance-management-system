@@ -16,12 +16,18 @@ class XNav extends Component {
                         {
                             to: '/performanceList',
                             name: '绩效列表',
+                            query: {
+                                page: 1
+                            },
                             key: 'performance',
                             icon: ''
                         },
                         {
                             to: '/dimensionList',
                             name: '维度列表',
+                            query: {
+                                page: 1
+                            },
                             key: 'dimension',
                             icon: ''
                         }
@@ -35,12 +41,18 @@ class XNav extends Component {
                         {
                             to: '/teamList',
                             name: '团队列表',
+                            query: {
+                                page: 1
+                            },
                             key: 'team',
                             icon: ''
                         },
                         {
                             to: '/groupList',
                             name: '小组列表',
+                            query: {
+                                page: 1
+                            },
                             key: 'group',
                             icon: ''
                         }
@@ -49,6 +61,9 @@ class XNav extends Component {
                 {
                     to: '/userList',
                     name: '用户管理',
+                    query: {
+                        page: 1
+                    },
                     key: 'user',
                     icon: 'icon-users'
                 }
@@ -64,7 +79,7 @@ class XNav extends Component {
     renderMenuEl (item) {
         if (item.to) {
             return (
-                <NavLink className="x-nav-menu" activeClassName="selected" to={item.to} isActive={(match, location) => {
+                <NavLink className="x-nav-menu" activeClassName="selected" to={{pathname: item.to, search: '?page=1'}} isActive={(match, location) => {
                     if (location.pathname.indexOf(item.key) > -1) {
                         return true
                     }
@@ -98,7 +113,7 @@ class XNav extends Component {
                         list.map((item, i) => {
                             return (
                                 <li key={i}>
-                                    <NavLink className="x-nav-menu" activeClassName="selected" to={item.to} isActive={(match, location) => {
+                                    <NavLink className="x-nav-menu" activeClassName="selected" to={{pathname: item.to, search: '?page=1'}} isActive={(match, location) => {
                                         if (location.pathname.indexOf(item.key) > -1) {
                                             return true
                                         }

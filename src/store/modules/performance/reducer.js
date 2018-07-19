@@ -2,17 +2,14 @@ import * as types from './types'
 
 export default (
     state = {
-        username: '222',
-        password: ''
+
     },
     action
 ) => {
     switch (action.type) {
-        case types.LOGIN_SUCCESS:
-            console.log(action)
+        case types.SAVE_DIMENSION_LIST:
             return {
                 ...state,
-                username: action.username
             }
         default:
             return state

@@ -28,6 +28,7 @@
 
 /* 点击头像显示的下拉列表样式 */
 .x-down-list-warp {
+  z-index: 1111;
   position: absolute;
   top: 40px;
   right: 0;

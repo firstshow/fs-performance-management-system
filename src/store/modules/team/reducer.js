@@ -2,8 +2,7 @@ import * as types from './types'
 
 export default (
     state = {
-        username: '222',
-        groupData: null
+        username: '222'
     },
     action
 ) => {
@@ -12,7 +11,7 @@ export default (
             console.log(action)
             return {
                 ...state,
-                groupData: action.data
+
             }
         default:
             return state
