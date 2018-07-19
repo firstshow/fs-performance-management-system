@@ -3,16 +3,16 @@ import * as types from './types'
 export default (
     state = {
         username: '222',
-        password: ''
+        groupData: null
     },
     action
 ) => {
     switch (action.type) {
-        case types.LOGIN_SUCCESS:
+        case types.SAVE_GROUP_LIST:
             console.log(action)
             return {
                 ...state,
-                username: action.username
+                groupData: action.data
             }
         default:
             return state

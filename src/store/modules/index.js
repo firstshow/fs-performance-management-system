@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import Login from './user/reducer'
+import User from './user/reducer'
 import Team from './team/reducer'
 import Performance from './performance/reducer'
 
-export default combineReducers({ Login, Team, Performance })
+export default combineReducers({ User, Team, Performance })

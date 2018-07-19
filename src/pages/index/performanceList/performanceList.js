@@ -1,10 +1,13 @@
 import React, {Component} from 'react'
-import { Select, Input, Table } from 'antd';
+import { Select, Input, Table, Pagination } from 'antd';
 import { Link } from 'react-router-dom'
 import XBreadcrumb from '~components/x-breadcrumb/index'
 import './performanceList.scss'
 import store from '~store/index';
 import { getTotalPerformanceList } from '~store/modules/performance/actions.js'
+import { getGroupList } from '~store/modules/team/actions.js'
+import {getNowQuarter, getFullYear} from '~utils/utils'
+import publicConf from '~config/publicConf'
 
 const Option = Select.Option
 
@@ -52,36 +55,133 @@ class PerformanceList extends Component {
                     name: '绩效列表'
                 }
             ],
-            tableList: []
+            groupList: [], // 筛选项中的小组列表
+            tableTotal: 0, // 列表总数据量
+            tableList: [], // 列表数据
+            reqData: { //  入参数据
+                year: getFullYear(), // 年份
+                quarter: getNowQuarter(), // 季度
+                groupId: '', // 团队id
+                searchName: '', // 搜索内容
+                page: 1, // 当前第几页
+                pageSize: 10 // 一页多少条数据
+            }
         }
     }
 
     componentDidMount () {
+        this.getGroupList()
         this.getTableList()
+    }
+
+    /**
+     * 获取筛选项中小组列表数据
+     */
+    getGroupList () {
+        console.log(store.getState())
+        store.dispatch(getGroupList({
+            page: 1,
+            pageSize: 10,
+            parentTeamId: store.getState().User.teamId
+        })).then((res) => {
+            console.log(res)
+            if (res.resultCode === 200) {
+                this.setState({
+                    groupList: res.data.list
+                })
+            }
+        })
     }
 
     /**
      * 获取列表数据
      */
     getTableList () {
-        store.dispatch(getTotalPerformanceList({
-            page: 1,
-            pageSize: 10
-        })).then((res) => {
+        store.dispatch(getTotalPerformanceList(this.state.reqData)).then((res) => {
             console.log(res)
             if (res.resultCode === 200) {
                 this.setState({
-                    tableList: res.data.list
+                    tableList: res.data.list,
+                    tableTotal: res.data.total
                 })
             }
         })
     }
 
-    handleChange (value) {
+    /**
+     * 翻页查询数据
+     * @param page
+     * @param pageSize
+     */
+    handlePageChange (page, pageSize) {
+        console.log(page)
+        console.log(pageSize)
+        this.setState({
+            reqData: {
+                ...this.state.reqData,
+                page
+            }
+        }, () => {
+            this.getTableList()
+        })
+    }
+
+    /**
+     * 年份修改后，做对应赋值
+     * @param value 改变的值
+     */
+    handleYearChange (value) {
         console.log(`selected ${value}`)
+        this.setState({
+            reqData: {
+                ...this.state.reqData,
+                year: value
+            }
+        })
+    }
+
+    /**
+     * 季度修改后，做对应赋值
+     * @param value 改变的值
+     */
+    handleQuarterChange (value) {
+        this.setState({
+            reqData: {
+                ...this.state.reqData,
+                quarter: value
+            }
+        })
+    }
+
+    /**
+     * 小组修改后，做对应赋值
+     * @param value 改变的值
+     */
+    handleGroupChange (value) {
+        this.setState({
+            reqData: {
+                ...this.state.reqData,
+                groupId: value
+            }
+        })
+    }
+
+    /**
+     * 搜索输入框改变时进行赋值
+     * @param event 输入框对象
+     */
+    handleInputChange (event) {
+        this.setState({
+            reqData: {
+                ...this.state.reqData,
+                searchName: event.target.value
+            }
+        })
     }
 
     render() {
+        // 获取当前所在的季度
+        let nowQuarter = getNowQuarter()
         return (
             <div className="x-warp">
               <XBreadcrumb data={this.state.breadcrumbData}></XBreadcrumb>
@@ -89,39 +189,48 @@ class PerformanceList extends Component {
                 <div data-flex="main:left">
                   <div className="x-search-section">
                     <span>年份：</span>
-                    <Select defaultValue="lucy" style={{ width: 120 }} onChange={this.handleChange}>
-                      <Option value="jack">2018</Option>
-                      <Option value="lucy">2019</Option>
+                    <Select defaultValue={(new Date).getFullYear().toString()} style={{ width: 120 }} onChange={this.handleYearChange.bind(this)}>
+                        {
+                            publicConf.yearList.map((item) => {
+                                return <Option value={item.value} key={item.value}>{item.name}</Option>
+                            })
+                        }
                     </Select>
                   </div>
                     <div className="x-search-section">
                         <span>季度：</span>
-                        <Select defaultValue="Q1" style={{ width: 120 }} onChange={this.handleChange}>
-                            <Option value="Q1">Q1季度</Option>
-                            <Option value="Q2">Q2季度</Option>
-                            <Option value="Q3">Q3季度</Option>
-                            <Option value="Q4">Q4季度</Option>
+                        <Select defaultValue={nowQuarter} style={{ width: 120 }} onChange={this.handleQuarterChange.bind(this)}>
+                            {
+                                publicConf.quarterList.map((item) => {
+                                    return <Option value={item.value} key={item.value}>{item.name}</Option>
+                                })
+                            }
                         </Select>
                     </div>
                   <div className="x-search-section">
                     <span>小组：</span>
-                    <Select defaultValue="lucy" style={{ width: 120 }} onChange={this.handleChange}>
-                      <Option value="jack">Jack</Option>
-                      <Option value="lucy">Lucy</Option>
-
+                    <Select defaultValue="" style={{ width: 120 }} onChange={this.handleGroupChange.bind(this)}>
+                        <Option value="">请选择小组</Option>
+                        {
+                            this.state.groupList.map((item) => {
+                                return <Option value={item.teamId} key={item.teamId}>{item.teamName}</Option>
+                            })
+                        }
                     </Select>
                   </div>
                 </div>
                 <div className="x-search-section">
                   <Search
                       placeholder="请输入姓名／花名"
-                      onSearch={value => console.log(value)}
+                      onChange={this.handleInputChange.bind(this)}
+                      onSearch={this.getTableList.bind(this)}
                       style={{ width: 200 }}
                   />
                 </div>
               </div>
               <div className="x-table-warp">
-                <Table columns={columns} dataSource={this.state.tableList} rowKey={record => record.totalSocreId} />
+                <Table columns={columns} dataSource={this.state.tableList} rowKey={record => record.totalSocreId} pagination={false} />
+                <Pagination className="x-pagination" current={this.state.reqData.page} pageSize={this.state.reqData.pageSize} total={this.state.tableTotal} onChange={this.handlePageChange.bind(this)} />
               </div>
             </div>
         )
